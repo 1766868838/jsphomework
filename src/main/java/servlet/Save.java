@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -76,7 +75,8 @@ public class Save extends HttpServlet {
 		    ps.setObject(11, courseid);
 		    int n = ps.executeUpdate(); 
 		    System.out.println(5+n);
-		    for(int i =0;i<pro_id.length;i++) {
+		    int i =0;
+		    for(;i<pro_id.length-1;i++) {
 		    	PreparedStatement ps2 = con.prepareStatement("UPDATE process SET cnt=?, method=?, task=? WHERE pro_id=?");
 				stmt = con.createStatement();
 				 // 注意：索引从1开始
@@ -85,6 +85,25 @@ public class Save extends HttpServlet {
 				ps2.setObject(3, task[i]);
 				ps2.setObject(4, pro_id[i]);
 				int n2 = ps2.executeUpdate(); 
+		    }
+		    
+		    
+		    if(!method[i].equals("")) {
+		    	System.out.println(i + "     "+method[i]);
+				String sql = "insert into process(pro_id,username,week,cnt,method,task,course_id) values(?,?,?,?,?,?,?)";
+			    PreparedStatement ps3 = con.prepareStatement(sql);
+				stmt = con.createStatement();
+					 // 注意：索引从1开始
+				ps3.setObject(1, pro_id[i]);
+				ps3.setObject(2, 20021234);
+				ps3.setObject(3, 3);
+				ps3.setObject(4, cnt[i]);
+				ps3.setObject(5, method[i]);
+				ps3.setObject(6, task[i]);
+				ps3.setObject(7, 1);
+				
+				int n3 = ps3.executeUpdate(); 
+			    
 		    }
 		    
 		    response.sendRedirect("/BigHomework/Import");
