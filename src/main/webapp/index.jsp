@@ -110,7 +110,7 @@
 		<div class="g-nav">
 			<div class="m-nav">
 				<a class="navbar-brand" href="index.jsp">
-					<img src="	https://mqcai.top/static/media/logo.621524bf.svg">
+					
 				</a>
 				<label id="title">杭州惠明科技大学教务系统</label>
 			</div>
@@ -263,10 +263,12 @@
 								</div>
 								<!--动态添加每行数据  -->
 								<%ArrayList processlist = (ArrayList) application.getAttribute("processlist");
-									
+									int idd = 0;
 									for(int i =0;i<processlist.size();i++){
 										Process process = (Process) processlist.get(i);
 										System.out.println(process.getPro_id());
+										idd = process.getPro_id();
+										
 								%>
 								<div class="m-row-t">
 									<input name="pro_id" style="display:none" value=<%=process.getPro_id() %>>
@@ -274,7 +276,16 @@
 									<input type="text" name="method" class="at-input" value=<%=process.getMethod() %>>
 									<input type="text" name="task" class="at-input" value=<%=process.getTask() %>>
 								</div>
-								<%} %>
+								<%}
+									idd++;
+								%>
+								<div class="m-row-t">
+									<input name="pro_id" style="display:none" value=<%=idd %> >
+									<input type="text" name="cnt" class="at-input" value="">
+									<input type="text" name="method" class="at-input" value="" >
+									<input type="text" name="task" class="at-input" value="" >
+						
+								</div>
 							</div>
 						</div>
 						<div class="m-main m-hei" style="margin:45px 0px 0px" id="c">
@@ -294,7 +305,9 @@
 									for(int i =0;i<explist.size();i++){
 										Experiment exp = (Experiment) explist.get(i);
 										System.out.println(exp.getExp_id());
+										int idd2 = 0;
 								%>
+								
 								<div class="m-row-e">
 									<div class="e-item">
 										<input type="text" class="at-input" value=<%=exp.getName() %>>
@@ -322,7 +335,38 @@
 									<input type="text" class="at-input" value=<%=exp.getGroupnum() %>>
 									</div>
 								</div>
-								<%} %>
+								<%
+								
+								} 
+								
+								%>
+								<div class="m-row-e">
+									<div class="e-item">
+										<input type="text" class="at-input" >
+									</div>
+									<div class="e-item">
+									<select  name = "experimental">
+										<option value="验证">验证</option>
+										<option value="设计">设计</option>
+										<option value="研究">研究</option>
+										<option value="综合">综合</option>
+										<option value="演示">演示</option>
+										<option value="专业" selected="selected">专业</option>
+									</select>
+									</div>
+									<div class="e-item">
+									<select  name = "Requirements">
+										<option value="选做">选做</option>
+										<option value="必做" selected="selected">必做</option>
+									</select>
+									</div>
+									<div class="e-item">
+									<input type="text" class="at-input">
+									</div>
+									<div class="e-item">
+									<input type="text" class="at-input">
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="m-footer">
@@ -354,9 +398,7 @@
 								<!-- <input type="button" value="JSP/Servlet程序设计"> -->
 							</div>
 							<div class="m-fun">
-							<div class="f-item" id="bt1" style="background:rgb(33,165,87);color:rgb(255,255,255); ">
-								导入信息
-							</div> 
+
 							<input type="submit" class="f-item" id="bt2" value="保存数据" style="background:rgb(33,165,87);color:rgb(255,255,255); ">
 								
 							</div>

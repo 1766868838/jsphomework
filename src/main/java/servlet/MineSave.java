@@ -67,7 +67,7 @@ public class MineSave extends HttpServlet {
 		    ps.setObject(6, biography);
 		    ps.setObject(7, username);
 		    int n = ps.executeUpdate(); 
-		    
+		    System.out.println("68"+biography);
 		    
 		    
 		    response.sendRedirect("/BigHomework/Mine");

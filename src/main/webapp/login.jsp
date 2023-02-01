@@ -84,7 +84,7 @@ div{
 					<i class="iconfont">&#xe64c</i>
 					<input class="c-input" name="password" placeholder="密码"></input>
 				</div>
-				<button class="btn">登录1</button>
+				<button class="btn">登录</button>
 			</div>
 			</form>
 		</div>

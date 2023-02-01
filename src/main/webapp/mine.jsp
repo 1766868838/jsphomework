@@ -9,6 +9,7 @@
 <title>个人中心页面</title>
  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 <link href="./css/iconfont.css" rel="stylesheet" type="text/css">
+<link href="./css/index.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 div{
 	//border:1px solid black;
@@ -90,6 +91,30 @@ height:140px;
 </head>
 <body>
 <form action="/BigHomework/MineSave">
+<div class="g-index">
+		<div class="g-nav">
+			<div class="m-nav">
+				<a class="navbar-brand" href="index.jsp">
+					
+				</a>
+				<label id="title">杭州惠明科技大学教务系统</label>
+			</div>
+			<div class="m-menu-wrap">
+				<div class="m-item sel">
+					<a id="lan">English</a>
+				</div>
+
+				<form name="MineForm" action="/BigHomework/Mine">
+
+				<div class="m-item">
+					<a name="username"  id="t1">个人信息</a>
+				</div>
+				</form>
+				<div class="m-item">
+					<a href="" id="t2">退出登录</a>
+				</div>
+			</div>
+		</div>
 	<div class="mine">
 			<div class="head">
 				<lable class="label">头像</lable>
