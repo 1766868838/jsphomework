@@ -121,7 +121,9 @@
 
 				<form name="MineForm" action="/BigHomework/Mine">
 				<%ArrayList courseList2 = (ArrayList) application.getAttribute("courselist");
+					
 					Bean bean2 = (Bean) courseList2.get(0);
+					
 				%>
 				<div class="m-item">
 					<a name="username" value=<%=bean2.getUsername() %> href="javascript:document.MineForm.submit();" id="t1">个人信息</a>
@@ -136,7 +138,8 @@
 		<div class="g-main">
 			<div class="m-inner">
 				<%ArrayList courseList = (ArrayList) application.getAttribute("courselist");
-					Bean bean = (Bean) courseList.get(0);
+					int number = (int) session.getAttribute("number");
+					Bean bean = (Bean) courseList.get(number);
 				%>
 			
 				<div class="m-form">
@@ -392,7 +395,7 @@
 								
 								%>
 								
-								<input type="button" class="m-cls" value=<%=bean1.getCourse_cname() %>>
+								<input type="submit" name="course" class="m-cls" value=<%=bean1.getCourse_cname() %>>
 								
 								<%} %>
 								<!-- <input type="button" value="JSP/Servlet程序设计"> -->
