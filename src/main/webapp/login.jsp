@@ -8,7 +8,7 @@
 <link href="./css/iconfont.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 div{
-	//border:1px solid black;
+	//border:2px solid black;
 }
 .login{
 	width:1280px;
